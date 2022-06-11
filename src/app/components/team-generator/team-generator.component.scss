@@ -1,54 +1,59 @@
-h1 {
-  font-size: 3rem;
-}
-
-.members-list {
-  padding: 1rem;
+.card {
+  padding: 2rem;
   width: 100%;
-  height: 10rem;
-  border: 0.1rem solid grey;
-  overflow: auto;
 
-  li {
-    list-style: none;
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+  h1 {
+    font-size: 3rem;
   }
-}
 
-.add-members-section {
-  input {
-    border: none;
-    border-bottom: 0.1rem solid rgba(128, 128, 128, 0.418);
-    margin-right: 0.5rem;
+  .members-list {
+    padding: 1rem;
     width: 100%;
+    height: 10rem;
+    border: 0.1rem solid grey;
+    overflow: auto;
+
+    li {
+      list-style: none;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .add-members-section {
+    input {
+      border: none;
+      border-bottom: 0.1rem solid rgba(128, 128, 128, 0.418);
+      margin-right: 0.5rem;
+      width: 100%;
+      display: flex;
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      color: white;
+      font-weight: 400;
+      cursor: pointer;
+      background-color: rgb(0, 53, 139);
+      margin-top: 0.5rem;
+    }
+  }
+
+  .generate-teams-section {
+    margin: 2rem 0;
     display: flex;
-  }
+    height: 2rem;
 
-  button {
-    width: 100%;
-    border: none;
-    color: white;
-    font-weight: 400;
-    cursor: pointer;
-    background-color: rgb(0, 53, 139);
-    margin-top: 0.5rem;
-  }
-}
+    input {
+      width: 50%;
+    }
 
-.generate-teams-section {
-  margin: 2rem 0;
-  display: flex;
-  height: 2rem;
-
-  input {
-    width: 50%;
-  }
-
-  button {
-    width: 50%;
-    background-color: darkcyan;
-    border: none;
-    color: white;
+    button {
+      width: 50%;
+      background-color: darkcyan;
+      border: none;
+      color: white;
+    }
   }
 }
