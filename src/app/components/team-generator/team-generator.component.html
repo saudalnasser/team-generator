@@ -2,17 +2,23 @@
   <h1>Team Generator</h1>
 
   <ul class="members-list">
-    <li>James Brown</li>
-    <li>Robert Miller</li>
+    <li *ngFor="let member of members">{{ member | titlecase }}</li>
   </ul>
 
   <div class="add-members-section">
-    <input type="text" placeholder="Name" />
-    <button>Add</button>
+    <input
+      type="text"
+      placeholder="Name"
+      #newMemberInput
+      [value]="newMember"
+      (input)="onMemberInput(newMemberInput.value)" />
+    <button (click)="onAddMemberButtonClick()">Add</button>
   </div>
 
   <div class="generate-teams-section">
     <input type="text" placeholder="# of teams" />
     <button>Generate</button>
   </div>
+
+  <p *ngIf="errorMessage" class="error-msg">{{ errorMessage }}</p>
 </div>
