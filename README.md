@@ -1,6 +1,6 @@
 # Team Generator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.1.
+This is my second project using angular it is based on a [Youtube Course](https://youtu.be/WHv1YQUg6ow) and it was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.1
 
 ## Development server
 
