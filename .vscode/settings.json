@@ -12,6 +12,7 @@
     "DOCKERHUB",
     "geekyeggo",
     "githubocto",
-    "subdir"
+    "subdir",
+    "titlecase"
   ]
 }
