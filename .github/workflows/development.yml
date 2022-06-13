@@ -19,12 +19,24 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: npm
 
-      - name: '🔧 install npm@latest'
-        run: npm i -g npm@latest
+      - name: '📦 cache node_modules'
+        id: node-modules-cache
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
 
-      - name: '📦 install dependencies'
-        uses: bahmutov/npm-install@v1
+      - if: ${{ steps.node-modules-cache.outputs.cache-hit != 'true' }}
+        name: '📦 install dependencies'
+        uses: npm run clean && npm install
 
       - name: '🔍 run tests'
         run: npm run test:headless --if-present
@@ -41,12 +53,24 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: npm
 
-      - name: '🔧 install npm@latest'
-        run: npm i -g npm@latest
+      - name: '📦 cache node_modules'
+        id: node-modules-cache
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
 
-      - name: '📦 install dependencies'
-        uses: bahmutov/npm-install@v1
+      - if: ${{ steps.node-modules-cache.outputs.cache-hit != 'true' }}
+        name: '📦 install dependencies'
+        uses: npm run clean && npm install
 
       - name: '🔍 lint code'
         run: npm run lint --if-present
