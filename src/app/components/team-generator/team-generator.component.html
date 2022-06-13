@@ -16,9 +16,19 @@
   </div>
 
   <div class="generate-teams-section">
-    <input type="text" placeholder="# of teams" />
-    <button>Generate</button>
+    <input
+      type="text"
+      placeholder="# of teams"
+      #numberOfTeamsInput
+      [value]="numberOfTeams"
+      (input)="onNumberOfTeamsInput(numberOfTeamsInput.value)" />
+    <button (click)="onGenerateButtonClick()">Generate</button>
   </div>
 
   <p *ngIf="errorMessage" class="error-msg">{{ errorMessage }}</p>
 </div>
+
+<app-team
+  *ngFor="let team of teams; index as i"
+  title="Team {{ i + 1 }}"
+  [members]="team"></app-team>
